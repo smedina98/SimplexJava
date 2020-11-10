@@ -1,17 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package simplexx;
-
 import java.text.DecimalFormat;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author lipiri
- */
+
 public class GUI extends javax.swing.JFrame {
 
     /**
@@ -217,9 +207,9 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_crearActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        text.append("METODO SIMPLEX\n");
-        DecimalFormat l = new DecimalFormat("0.000");
+
+        text.append("Resolución por el Método Simplex\n");
+        DecimalFormat l = new DecimalFormat("0.00");
         int fila = Integer.parseInt(filas.getText());
         int columna = Integer.parseInt(columnas.getText());
         int columna1 = columna;
@@ -234,7 +224,7 @@ public class GUI extends javax.swing.JFrame {
                 y1++;
 
             } else {
-                text.append("\t resul");
+                text.append("\t R");
 
             }
         }
@@ -247,7 +237,7 @@ public class GUI extends javax.swing.JFrame {
 
         for (int i = 0; i < fila; i++) {
             if(i!=0){
-                text.append("d"+i);
+                text.append("F"+i);
             }
             for (int j = 0; j < columna; j++) {
                 text.append("\t " + l.format(v[i][j]));
@@ -272,13 +262,13 @@ public class GUI extends javax.swing.JFrame {
                     c = i;
                 }
             }
-            text.append("EL MAXIMO NEGATIVO ES\n");
-            text.append(" " + negativo + "\nla columna es \n");
+            text.append("El máximo negativo es: \n");
+            text.append(negativo + "\nLa columna es: \n");
             for (int i = 0; i < fila; i++) {
                 text.append(" " + v[i][c] + "\n");
             }
             text.append("\n");
-            text.append("\n dividiendo con la columna\n");
+            text.append("\nDividiendo con la columna\n");
             double menor = 0;
             double v1[] = new double[fila - 1];
             int h = 0;
@@ -294,19 +284,19 @@ public class GUI extends javax.swing.JFrame {
                     f = i + 1;
                 }
             }
-            text.append("el menor de la division es: " + menor + "\n");
+            text.append("El menor número de la division es: " + menor + "\n");
             double pivo = v[f][c];
-            text.append("el pivote es:" + pivo);
+            text.append("El elemento pivote es:" + pivo);
 
-            text.append("\nproceso de convertir el pivote en 1\n dividiendo toda la fila con el pivote\n");
+            text.append("\nProceso de convertir el pivote en 1\nDividiendo toda la fila con el pivote\n");
             for (int i = 0; i < columna; i++) {
                 double va = v[f][i];
                 v[f][i] = v[f][i] / pivo;
-                text.append("" + va + " / " + pivo + " = " + v[f][i] + "\n");
+                text.append("" + va + " / " + l.format(pivo) + " = " + l.format(v[f][i]) + "\n");
             }
             for (int i = 1; i < fila; i++) {
                 if (i == f) {
-                    v2[i] = "x" + (c + 1);
+                    v2[i] = "F" + (c + 1);
                     v3[i] = c + 1;
                     v4[i] = i;
                 }
@@ -316,17 +306,17 @@ public class GUI extends javax.swing.JFrame {
                 }
             }
 
-            text.append("\n proceso \n ");
+            text.append("\n\n Proceso \n ");
             for (int i = 0; i < fila; i++) {
                 if (i != f) {
-                    text.append("Convertiendo la columna del pivote en cero, en fila" + (i + 1) + "\n\n");
+                    text.append("Convertiendo la columna del pivote en cero, en la fila " + (i + 1) + "\n\n");
 
                     double guar = 0;
                     guar = -v[i][c];
                     for (int j = 0; j < columna; j++) {
                         double vaa = v[i][j];
                         v[i][j] = guar * v[f][j] + v[i][j];
-                        text.append(" " + guar + "*" + v[f][j] + " + " + vaa + " = " + v[i][j] + "\n");
+                        text.append(" " + l.format(guar) + "*" + l.format(v[f][j]) + " + " + l.format(vaa) + " = " + l.format(v[i][j]) + "\n");
                     }
                 }
             }
@@ -345,7 +335,7 @@ public class GUI extends javax.swing.JFrame {
                     y1++;
 
                 } else {
-                    text.append("\t resul");
+                    text.append("\t R");
 
                 }
             }
@@ -369,7 +359,7 @@ public class GUI extends javax.swing.JFrame {
         for (int i = 1; i<fila; i++) {
             char m1[]=v2[i].toCharArray();
             if(m1[0]=='x'){
-            text.append(" "+v2[i]+" = "+v[v4[i]][columna-1]+"\n");
+            text.append(v2[i]+" = "+v[v4[i]][columna-1]+"\n");
             }
         }
 
