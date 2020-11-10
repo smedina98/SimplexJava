@@ -221,7 +221,7 @@ public class GUI extends javax.swing.JFrame {
     private void filasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filasActionPerformed
 
     }//GEN-LAST:event_filasActionPerformed
-
+    
     private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
         if (filas.getText().matches("[1-9][0-9]*")) {
             if (columnas.getText().matches("[1-9][0-9]*")) {
@@ -266,7 +266,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         text.setText("");
         text.setEnabled(true);
-        
+
         jButton2.setEnabled(true);
         jButton2.requestFocus();
         tabla.editCellAt(0, 0);
@@ -424,7 +424,7 @@ public class GUI extends javax.swing.JFrame {
                 text.append(v2[i] + " = " + v[v4[i]][columna - 1] + "\n");
             }
         }
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void columnasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_columnasActionPerformed
